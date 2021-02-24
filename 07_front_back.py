@@ -10,9 +10,17 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
+def dividirPalavra(palavra):
+    metade = int(len(palavra)/2)
+
+    return (palavra[:-metade], palavra[-metade:])
+
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
-    return
+    primeiraMetadeA, segundaMetadeA = dividirPalavra(a)
+    primeiraMetadeB, segundaMetadeB = dividirPalavra(b)
+    
+    return ''.join((primeiraMetadeA, primeiraMetadeB, segundaMetadeA, segundaMetadeB))
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
