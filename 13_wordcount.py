@@ -56,8 +56,13 @@ import sys
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
+def print_words(words):
+    for word, count  in sorted(words):
+        print(word, count)
 
-
+def print_top(words):
+    for word, count in sorted(words, reverse=True, key=lambda tupla:tupla[-1]):
+        print(word, count)
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.
 def main():
@@ -67,10 +72,15 @@ def main():
 
     option = sys.argv[1]
     filename = sys.argv[2]
+
+    openedFile = open(filename)
+    wordsSplitedAndLowered = [word.lower() for word in openedFile.read().split()]
+    countedWords = list({word: wordsSplitedAndLowered.count(word) for word in wordsSplitedAndLowered}.items())
+
     if option == '--count':
-        print_words(filename)
+        print_words(countedWords)
     elif option == '--topcount':
-        print_top(filename)
+        print_top(countedWords)
     else:
         print('unknown option: ' + option)
         sys.exit(1)

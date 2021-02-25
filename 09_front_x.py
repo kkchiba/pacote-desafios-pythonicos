@@ -13,7 +13,16 @@ antes de combina-las.
 
 def front_x(words):
     # +++ SUA SOLUÇÃO +++
-    return
+
+    iniciaComX = [word for word in words if word[0]=='x']
+    naoIniciaComX = [word for word in words if word[0]!='x']
+
+    iniciaComX.sort()
+    naoIniciaComX.sort()
+    
+    return iniciaComX + naoIniciaComX
+
+    #utilizando parametro key da funcao sort/sorted ????
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

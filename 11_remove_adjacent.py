@@ -10,8 +10,14 @@ Irá retornar: [1, 2, 3]
 
 def remove_adjacent(nums):
     # +++ SUA SOLUÇÃO +++
-    return
-
+    novaLista = []
+    anterior = ''
+    for num in nums:
+        if num!=anterior:
+            novaLista.append(num)
+            anterior = num
+    return novaLista
+    #utilizando zip??
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 

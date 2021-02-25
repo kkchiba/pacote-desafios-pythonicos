@@ -11,8 +11,25 @@ A sua solução deve rodar em tempo linear, ou seja, deve fazer uma
 
 def linear_merge(list1, list2):
     # +++ SUA SOLUÇÃO +++
-    return
+    novaLista=[]
+    idx1 = 0
+    idx2 = 0
+    for i in range(len(list1)+ len(list2)):
+        if idx2 >= len(list2):
+            novaLista.append(list1[idx1])
+            idx1+=1
+        elif idx1 >= len(list1):
+            novaLista.append(list2[idx2])
+            idx2+=1
+        elif list1[idx1] <= list2[idx2]:
+            novaLista.append(list1[idx1])
+            idx1+=1
+        else:
+            novaLista.append(list2[idx2])
+            idx2+=1
 
+    return novaLista
+    #utilizando heap.merge ??
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
